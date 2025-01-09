@@ -1,6 +1,8 @@
 obj-m := servo.o
 
 SRC := $(shell pwd)
+KVER ?= $(shell uname -r)
+KERNEL_SRC := /lib/modules/$(KVER)/build
 
 all:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SRC)
